@@ -33,7 +33,7 @@ type Config struct {
 	Region   geom.Region `toml:"region"`
 }
 
-func LoadConfig(path string) (Config, error) {
+func Load(path string) (Config, error) {
 	var config Config
 
 	file, err := os.Open(path)

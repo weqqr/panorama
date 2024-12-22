@@ -1,13 +1,13 @@
 package mesh
 
 import (
-	"github.com/lord-server/panorama/pkg/lm"
+	. "github.com/lord-server/panorama/pkg/linalg"
 )
 
 type Vertex struct {
-	Position lm.Vector3
-	Texcoord lm.Vector2
-	Normal   lm.Vector3
+	Position Vector3
+	Texcoord Vector2
+	Normal   Vector3
 }
 
 type Mesh struct {

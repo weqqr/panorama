@@ -1,6 +1,18 @@
 package static
 
-import "embed"
+import (
+	"embed"
+	"io/fs"
+)
 
 //go:embed ui
-var UI embed.FS
+var ui embed.FS
+
+func UI() fs.FS {
+	subFS, err := fs.Sub(ui, "ui")
+	if err != nil {
+		panic(err)
+	}
+
+	return subFS
+}

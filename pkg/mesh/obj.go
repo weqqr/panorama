@@ -7,48 +7,48 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/lord-server/panorama/pkg/lm"
+	. "github.com/lord-server/panorama/pkg/linalg"
 )
 
-func parseVector3(fields []string) (lm.Vector3, error) {
+func parseVector3(fields []string) (Vector3, error) {
 	if len(fields) < 3 {
-		return lm.Vector3{}, fmt.Errorf("expected at least 3 vector elements, found %d", len(fields))
+		return Vector3{}, fmt.Errorf("expected at least 3 vector elements, found %d", len(fields))
 	}
 
 	x, err := strconv.ParseFloat(fields[0], 32)
 	if err != nil {
-		return lm.Vector3{}, err
+		return Vector3{}, err
 	}
 
 	y, err := strconv.ParseFloat(fields[1], 32)
 	if err != nil {
-		return lm.Vector3{}, err
+		return Vector3{}, err
 	}
 
 	z, err := strconv.ParseFloat(fields[2], 32)
 	if err != nil {
-		return lm.Vector3{}, err
+		return Vector3{}, err
 	}
 
-	return lm.Vec3(x, y, z), nil
+	return Vec3(x, y, z), nil
 }
 
-func parseVector2(fields []string) (lm.Vector2, error) {
+func parseVector2(fields []string) (Vector2, error) {
 	if len(fields) < 2 {
-		return lm.Vector2{}, fmt.Errorf("expected at least 3 vector elements, found %d", len(fields))
+		return Vector2{}, fmt.Errorf("expected at least 3 vector elements, found %d", len(fields))
 	}
 
 	x, err := strconv.ParseFloat(fields[0], 32)
 	if err != nil {
-		return lm.Vector2{}, err
+		return Vector2{}, err
 	}
 
 	y, err := strconv.ParseFloat(fields[1], 32)
 	if err != nil {
-		return lm.Vector2{}, err
+		return Vector2{}, err
 	}
 
-	return lm.Vec2(x, y), nil
+	return Vec2(x, y), nil
 }
 
 type Triplet struct {
@@ -101,16 +101,16 @@ func parseFace(fields []string) ([]Triplet, error) {
 }
 
 type objParser struct {
-	positions []lm.Vector3
-	texcoords []lm.Vector2
-	normals   []lm.Vector3
+	positions []Vector3
+	texcoords []Vector2
+	normals   []Vector3
 
 	mesh Mesh
 }
 
 func (o *objParser) vertexAt(triplet Triplet) Vertex {
-	texcoord := lm.Vector2{}
-	normal := lm.Vector3{}
+	texcoord := Vector2{}
+	normal := Vector3{}
 
 	if triplet.texcoordIndex != nil {
 		texcoord = o.texcoords[*triplet.texcoordIndex-1]
@@ -201,9 +201,9 @@ func LoadOBJ(path string) (Model, error) {
 
 	scanner := bufio.NewScanner(file)
 	parser := objParser{
-		positions: []lm.Vector3{},
-		texcoords: []lm.Vector2{},
-		normals:   []lm.Vector3{},
+		positions: []Vector3{},
+		texcoords: []Vector2{},
+		normals:   []Vector3{},
 		mesh:      NewMesh(),
 	}
 

@@ -1,6 +1,6 @@
 package mesh
 
-import "github.com/lord-server/panorama/pkg/lm"
+import . "github.com/lord-server/panorama/pkg/linalg"
 
 type CubeFaces uint8
 
@@ -18,62 +18,62 @@ const (
 func Cuboid(x1, y1, z1, x2, y2, z2 float64, hiddenFaces CubeFaces) []Mesh {
 	yp := NewMesh()
 	yp.Vertices = []Vertex{
-		{Position: lm.Vec3(x1, y2, z1), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, 1.0, 0.0)},
-		{Position: lm.Vec3(x1, y2, z2), Texcoord: lm.Vec2(0.0, 1.0), Normal: lm.Vec3(0.0, 1.0, 0.0)},
-		{Position: lm.Vec3(x2, y2, z2), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, 1.0, 0.0)},
-		{Position: lm.Vec3(x1, y2, z1), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, 1.0, 0.0)},
-		{Position: lm.Vec3(x2, y2, z1), Texcoord: lm.Vec2(1.0, 0.0), Normal: lm.Vec3(0.0, 1.0, 0.0)},
-		{Position: lm.Vec3(x2, y2, z2), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, 1.0, 0.0)},
+		{Position: Vec3(x1, y2, z1), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, 1.0, 0.0)},
+		{Position: Vec3(x1, y2, z2), Texcoord: Vec2(0.0, 1.0), Normal: Vec3(0.0, 1.0, 0.0)},
+		{Position: Vec3(x2, y2, z2), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, 1.0, 0.0)},
+		{Position: Vec3(x1, y2, z1), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, 1.0, 0.0)},
+		{Position: Vec3(x2, y2, z1), Texcoord: Vec2(1.0, 0.0), Normal: Vec3(0.0, 1.0, 0.0)},
+		{Position: Vec3(x2, y2, z2), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, 1.0, 0.0)},
 	}
 
 	ym := NewMesh()
 	ym.Vertices = []Vertex{
-		{Position: lm.Vec3(x1, y1, z1), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, -1.0, 0.0)},
-		{Position: lm.Vec3(x1, y1, z2), Texcoord: lm.Vec2(0.0, 1.0), Normal: lm.Vec3(0.0, -1.0, 0.0)},
-		{Position: lm.Vec3(x2, y1, z2), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, -1.0, 0.0)},
-		{Position: lm.Vec3(x1, y1, z1), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, -1.0, 0.0)},
-		{Position: lm.Vec3(x2, y1, z1), Texcoord: lm.Vec2(1.0, 0.0), Normal: lm.Vec3(0.0, -1.0, 0.0)},
-		{Position: lm.Vec3(x2, y1, z2), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, -1.0, 0.0)},
+		{Position: Vec3(x1, y1, z1), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, -1.0, 0.0)},
+		{Position: Vec3(x1, y1, z2), Texcoord: Vec2(0.0, 1.0), Normal: Vec3(0.0, -1.0, 0.0)},
+		{Position: Vec3(x2, y1, z2), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, -1.0, 0.0)},
+		{Position: Vec3(x1, y1, z1), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, -1.0, 0.0)},
+		{Position: Vec3(x2, y1, z1), Texcoord: Vec2(1.0, 0.0), Normal: Vec3(0.0, -1.0, 0.0)},
+		{Position: Vec3(x2, y1, z2), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, -1.0, 0.0)},
 	}
 
 	xp := NewMesh()
 	xp.Vertices = []Vertex{
-		{Position: lm.Vec3(x2, y1, z1), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x2, y1, z2), Texcoord: lm.Vec2(0.0, 1.0), Normal: lm.Vec3(1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x2, y2, z2), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x2, y1, z1), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x2, y2, z1), Texcoord: lm.Vec2(1.0, 0.0), Normal: lm.Vec3(1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x2, y2, z2), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(1.0, 0.0, 0.0)},
+		{Position: Vec3(x2, y1, z1), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(1.0, 0.0, 0.0)},
+		{Position: Vec3(x2, y1, z2), Texcoord: Vec2(0.0, 1.0), Normal: Vec3(1.0, 0.0, 0.0)},
+		{Position: Vec3(x2, y2, z2), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(1.0, 0.0, 0.0)},
+		{Position: Vec3(x2, y1, z1), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(1.0, 0.0, 0.0)},
+		{Position: Vec3(x2, y2, z1), Texcoord: Vec2(1.0, 0.0), Normal: Vec3(1.0, 0.0, 0.0)},
+		{Position: Vec3(x2, y2, z2), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(1.0, 0.0, 0.0)},
 	}
 
 	xm := NewMesh()
 	xm.Vertices = []Vertex{
-		{Position: lm.Vec3(x1, y1, z1), Texcoord: lm.Vec2(1.0, 0.0), Normal: lm.Vec3(-1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x1, y1, z2), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(-1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x1, y2, z2), Texcoord: lm.Vec2(0.0, 1.0), Normal: lm.Vec3(-1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x1, y1, z1), Texcoord: lm.Vec2(1.0, 0.0), Normal: lm.Vec3(-1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x1, y2, z1), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(-1.0, 0.0, 0.0)},
-		{Position: lm.Vec3(x1, y2, z2), Texcoord: lm.Vec2(0.0, 1.0), Normal: lm.Vec3(-1.0, 0.0, 0.0)},
+		{Position: Vec3(x1, y1, z1), Texcoord: Vec2(1.0, 0.0), Normal: Vec3(-1.0, 0.0, 0.0)},
+		{Position: Vec3(x1, y1, z2), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(-1.0, 0.0, 0.0)},
+		{Position: Vec3(x1, y2, z2), Texcoord: Vec2(0.0, 1.0), Normal: Vec3(-1.0, 0.0, 0.0)},
+		{Position: Vec3(x1, y1, z1), Texcoord: Vec2(1.0, 0.0), Normal: Vec3(-1.0, 0.0, 0.0)},
+		{Position: Vec3(x1, y2, z1), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(-1.0, 0.0, 0.0)},
+		{Position: Vec3(x1, y2, z2), Texcoord: Vec2(0.0, 1.0), Normal: Vec3(-1.0, 0.0, 0.0)},
 	}
 
 	zp := NewMesh()
 	zp.Vertices = []Vertex{
-		{Position: lm.Vec3(x1, y1, z2), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, 0.0, 1.0)},
-		{Position: lm.Vec3(x1, y2, z2), Texcoord: lm.Vec2(0.0, 1.0), Normal: lm.Vec3(0.0, 0.0, 1.0)},
-		{Position: lm.Vec3(x2, y2, z2), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, 0.0, 1.0)},
-		{Position: lm.Vec3(x1, y1, z2), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, 0.0, 1.0)},
-		{Position: lm.Vec3(x2, y1, z2), Texcoord: lm.Vec2(1.0, 0.0), Normal: lm.Vec3(0.0, 0.0, 1.0)},
-		{Position: lm.Vec3(x2, y2, z2), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, 0.0, 1.0)},
+		{Position: Vec3(x1, y1, z2), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, 0.0, 1.0)},
+		{Position: Vec3(x1, y2, z2), Texcoord: Vec2(0.0, 1.0), Normal: Vec3(0.0, 0.0, 1.0)},
+		{Position: Vec3(x2, y2, z2), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, 0.0, 1.0)},
+		{Position: Vec3(x1, y1, z2), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, 0.0, 1.0)},
+		{Position: Vec3(x2, y1, z2), Texcoord: Vec2(1.0, 0.0), Normal: Vec3(0.0, 0.0, 1.0)},
+		{Position: Vec3(x2, y2, z2), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, 0.0, 1.0)},
 	}
 
 	zm := NewMesh()
 	zm.Vertices = []Vertex{
-		{Position: lm.Vec3(x1, y1, z1), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, 0.0, -1.0)},
-		{Position: lm.Vec3(x1, y2, z1), Texcoord: lm.Vec2(0.0, 1.0), Normal: lm.Vec3(0.0, 0.0, -1.0)},
-		{Position: lm.Vec3(x2, y2, z1), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, 0.0, -1.0)},
-		{Position: lm.Vec3(x1, y1, z1), Texcoord: lm.Vec2(0.0, 0.0), Normal: lm.Vec3(0.0, 0.0, -1.0)},
-		{Position: lm.Vec3(x2, y1, z1), Texcoord: lm.Vec2(1.0, 0.0), Normal: lm.Vec3(0.0, 0.0, -1.0)},
-		{Position: lm.Vec3(x2, y2, z1), Texcoord: lm.Vec2(1.0, 1.0), Normal: lm.Vec3(0.0, 0.0, -1.0)},
+		{Position: Vec3(x1, y1, z1), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, 0.0, -1.0)},
+		{Position: Vec3(x1, y2, z1), Texcoord: Vec2(0.0, 1.0), Normal: Vec3(0.0, 0.0, -1.0)},
+		{Position: Vec3(x2, y2, z1), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, 0.0, -1.0)},
+		{Position: Vec3(x1, y1, z1), Texcoord: Vec2(0.0, 0.0), Normal: Vec3(0.0, 0.0, -1.0)},
+		{Position: Vec3(x2, y1, z1), Texcoord: Vec2(1.0, 0.0), Normal: Vec3(0.0, 0.0, -1.0)},
+		{Position: Vec3(x2, y2, z1), Texcoord: Vec2(1.0, 1.0), Normal: Vec3(0.0, 0.0, -1.0)},
 	}
 
 	meshes := []Mesh{yp, ym, xp, xm, zp, zm}

@@ -1,0 +1,21 @@
+:root {
+    --fg: #1E1F24;
+    --fg-secondary: #62636C;
+    --fg-hover: #000000;
+    --fg-inactive: #80828D;
+    --fg-active: #D13416;
+}
+
+body, p, h1, h2, h3, h4, h5, h6 {
+    color: var(--fg);
+}
+
+:root,
+input {
+    font-family: Inter;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: local("Inter"), url("/InterVariable.woff2") format("woff2");
+}
